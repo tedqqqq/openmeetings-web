@@ -35,7 +35,6 @@ import org.apache.openmeetings.db.dao.user.UserDao;
 import org.apache.openmeetings.db.entity.user.Address;
 import org.apache.openmeetings.db.entity.user.User;
 import org.apache.openmeetings.web.app.WebSession;
-import org.apache.openmeetings.web.common.Captcha;
 import org.apache.openmeetings.web.pages.PrivacyPage;
 import org.apache.openmeetings.web.util.NonClosableDialog;
 import org.apache.openmeetings.web.util.NonClosableMessageDialog;
@@ -72,7 +71,7 @@ public class RegisterDialog extends NonClosableDialog<String> {
 	private final IModel<String> tzModel = Model.of(WebSession.get().getClientTZCode());
 	private RegisterForm form;
 	private SignInDialog s;
-	private Captcha captcha;
+//	private Captcha captcha;
 	private String firstName;
 	private String lastName;
 	private String login;
@@ -112,7 +111,7 @@ public class RegisterDialog extends NonClosableDialog<String> {
 			}
 		};
 		add(new Label("register", getString("121")).setRenderBodyOnly(true), new BookmarkablePageLink<>("link", PrivacyPage.class));
-		add(confirmRegistration);
+	//	add(confirmRegistration);
 		reset(null);
 		super.onInitialize();
 	}
@@ -144,7 +143,7 @@ public class RegisterDialog extends NonClosableDialog<String> {
 		email = null;
 		lang = WebSession.get().getLanguageByLocale();
 		country = WebSession.get().getLocale().getCountry();
-		captcha.refresh(handler);
+	//	captcha.refresh(handler);
 	}
 
 	@Override
@@ -221,7 +220,7 @@ public class RegisterDialog extends NonClosableDialog<String> {
 			add(passwordField = new PasswordTextField("password", new PropertyModel<String>(RegisterDialog.this, "password")));
 			add(confirmPassword = new PasswordTextField("confirmPassword", new Model<String>()).setResetPassword(true));
 			add(emailField = new RequiredTextField<>("email", new PropertyModel<String>(RegisterDialog.this, "email")));
-			add(captcha = new Captcha("captcha"));
+	//		add(captcha = new Captcha("captcha"));
 		}
 
 		@Override

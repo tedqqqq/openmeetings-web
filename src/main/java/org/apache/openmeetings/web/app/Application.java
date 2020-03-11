@@ -152,6 +152,7 @@ public class Application extends AuthenticatedWebApplication implements IApplica
 
 	@Override
 	protected void init() {
+		
 		setWicketApplicationName(super.getName());
 		getSecuritySettings().setAuthenticationStrategy(new OmAuthenticationStrategy());
 		getApplicationSettings().setAccessDeniedPage(AccessDeniedPage.class);

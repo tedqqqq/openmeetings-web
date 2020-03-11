@@ -110,6 +110,7 @@ public class AppointmentDialog extends AbstractFormDialog<Appointment> {
 	private DialogButton delete;
 	private DialogButton enterRoom;
 	private final CalendarPanel calendarPanel;
+	//日期选择
 	private final KendoFeedbackPanel feedback = new KendoFeedbackPanel("feedback", new Options("button", true));
 	MessageDialog confirmDelete;
 	private final WebMarkupContainer sipContainer = new WebMarkupContainer("sip-container");
@@ -164,6 +165,11 @@ public class AppointmentDialog extends AbstractFormDialog<Appointment> {
 		behavior.setOption("classes", "{'ui-dialog': 'ui-corner-all appointment'}");
 	}
 
+	/**
+	 * 设置ajax的请求
+	 * @param a
+	 * @param target
+	 */
 	public void setModelObjectWithAjaxTarget(Appointment a, AjaxRequestTarget target) {
 		form.setModelObject(a);
 		form.start.setModelObject(getDateTime(a.getStart()));
@@ -234,6 +240,7 @@ public class AppointmentDialog extends AbstractFormDialog<Appointment> {
 		final List<MeetingMember> mms = a.getMeetingMembers() == null ? new ArrayList<>() : a.getMeetingMembers();
 		Set<Long> currentIds = new HashSet<>();
 		List<User> users = new ArrayList<>();
+		//会议选择的是群
 		if (InviteeType.group == rdi.getModelObject()) {
 			//lets iterate through all group users
 			for (Group g : groups.getModelObject()) {

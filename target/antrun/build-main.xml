@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy file="G:\code\apache-openmeetings-4.0.10-src\openmeetings-web/src/main/webapp/WEB-INF/classes/META-INF/derby_persistence.xml" tofile="G:\code\apache-openmeetings-4.0.10-src\openmeetings-web\target/generated-res/persistence.xml" force="true" overwrite="true"/>
+</target>
+</project>

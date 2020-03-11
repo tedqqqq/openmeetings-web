@@ -27,6 +27,7 @@ public class HeaderPanel extends Panel {
 
 	public HeaderPanel(String id, String appName) {
 		super(id);
+		appName="XXX视频会议系统";
 		setOutputMarkupPlaceholderTag(true);
 		add(new Label("appName", Strings.isEmpty(appName) ? "&nbsp;" : appName).setEscapeModelStrings(false));
 	}
